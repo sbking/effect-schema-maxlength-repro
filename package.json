@@ -1,0 +1,16 @@
+{
+  "name": "effect-schema-maxlength-repro",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "repro": "tsx src/repro.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "effect": "^3.21.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {}
+}
