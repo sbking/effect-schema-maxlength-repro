@@ -7,10 +7,9 @@
     "repro": "tsx src/repro.ts"
   },
   "dependencies": {
-    "ajv": "^8.20.0",
-    "effect": "^3.21.4",
-    "tsx": "^4.20.3",
-    "typescript": "^5.9.2"
-  },
-  "devDependencies": {}
+    "ajv": "8.20.0",
+    "effect": "4.0.0-beta.92",
+    "tsx": "4.22.4",
+    "typescript": "6.0.3"
+  }
 }

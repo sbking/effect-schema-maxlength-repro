@@ -1,9 +1,9 @@
 import { Ajv } from "ajv"
-import * as JSONSchema from "effect/JSONSchema"
-import * as Schema from "effect/Schema"
+import { Schema } from "effect"
 
-const schema = Schema.String.pipe(Schema.maxLength(1))
-const jsonSchema = JSONSchema.make(schema)
+const schema = Schema.String.check(Schema.isMaxLength(1))
+const jsonSchemaDocument = Schema.toJsonSchemaDocument(schema)
+const jsonSchema = jsonSchemaDocument.schema
 const validateJsonSchema = new Ajv().compile(jsonSchema)
 
 const value = "💩"
@@ -11,7 +11,7 @@ const value = "💩"
 console.log("input:", value)
 console.log("String.prototype.length / UTF-16 code units:", value.length)
 console.log("Array.from(input).length / Unicode code points:", Array.from(value).length)
-console.log("Generated JSON Schema:", JSON.stringify(jsonSchema, null, 2))
+console.log("Generated JSON Schema document:", JSON.stringify(jsonSchemaDocument, null, 2))
 console.log("AJV validates generated JSON Schema:", validateJsonSchema(value))
 console.log("Effect Schema validates original schema:", Schema.is(schema)(value))
 
